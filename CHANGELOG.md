@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [v0.1.2] — 2026-05-06
+
+**Doctor onboarding patch.**
+
+### Added
+
+- [`docs/for-doctors.md`](docs/for-doctors.md) — Direct entry point for clinicians:
+  4 ready-to-paste AI prompt templates (specialty pack design / paper-to-JSON
+  conversion / system integration planning / specialty pack PR proposal) +
+  guidance on which spec files to point AI at if it doesn't auto-discover.
+- `README.md` opening section "👋 給醫師的快速入口" — three-bullet quick-start
+  pointing to the AI workflow + `docs/for-doctors.md`.
+
+### Changed
+
+- Repo structure section in README now lists `for-doctors.md`.
+
+### Why this release
+
+Making the workflow explicit: a doctor can paste the repo URL into their
+ChatGPT / Claude / Gemini and have AI design a specialty-specific brief
+template from this spec without writing any code.
+
+---
+
 ## [v0.1.1] — 2026-05-06
 
 **Patch release: add JSON Schema reference, examples, and overview doc.**

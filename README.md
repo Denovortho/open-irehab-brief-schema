@@ -9,6 +9,18 @@
 
 ---
 
+## 👋 給醫師的快速入口
+
+**你不需要會工程。** 把這個 repo 連結交給你慣用的 AI 助手（ChatGPT / Claude / Gemini），它會根據這份藍圖幫你規劃自己科別的診前問卷：
+
+- 為你的科別（婦科 / 神經 / 身心 / 家醫 / 急診…）設計 8-10 題結構化問卷
+- 把現有的紙本問卷轉成符合本 schema 的 JSON 格式
+- 規劃如何把問卷接進你的診所 / 醫院系統
+
+**直接複製貼上的 prompt 範例 + 詳細工作流：[`docs/for-doctors.md`](docs/for-doctors.md)**
+
+---
+
 ## What is this?
 
 **iRehab Brief Schema** 是一個開放的診前問卷格式 — 一個標準化的「醫師可以怎麼設計病患診前症狀問卷」的 authoring format。它不是一個產品、不是一個 SaaS、不是一個 app。它是格式本身。
@@ -103,6 +115,7 @@
 │   └── orthopedics-complete.json        8-question complete example
 └── docs/
     ├── overview.md            5-min 高層次介紹（建議先看）
+    ├── for-doctors.md         給醫師的快速入口 + AI prompt 模板
     ├── governing-law.md       台灣法準據法宣告
     └── brief-vs-prom.md       Brief 與 PROM 概念區分
 ```
