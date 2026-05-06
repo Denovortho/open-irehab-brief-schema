@@ -1,6 +1,6 @@
 # For Doctors — 給醫師的快速入口
 
-> 你不需要會工程。把這個 repo 連結交給你慣用的 AI 助手（ChatGPT / Claude / Gemini），它會根據這份 schema 幫你規劃自己科別的診前問卷。
+> 你不需要會工程。把這個 repo 連結交給你慣用的 AI 助手 — ChatGPT / Claude / Gemini / Microsoft Copilot，或你醫院內部部署的本地端 LLM（Ollama / Azure OpenAI 內部部署 / HIS 內網 LLM 都行） — 它會根據這份 schema 幫你規劃自己科別的診前問卷。
 
 ---
 
@@ -107,9 +107,22 @@ PR 流程請參考 CONTRIBUTING.md。
 
 ---
 
+## 為什麼要在意「本地端 LLM」這條路？
+
+很多醫院（特別是台灣大型醫學中心、美國 HIPAA-bound 醫院、歐盟 GDPR-bound 醫院）有規範：**臨床資訊不能送到院外 AI 服務**。這代表你不能直接把病患資料丟到 ChatGPT 雲端服務。
+
+但 — 你「**設計問卷格式**」這件事不涉及病患資料。Schema 本身是公開的（見本 repo），AI 拿到的只是一份格式藍圖 + 你的科別需求。**這個工作流即使是最嚴格的合規環境也適用。**
+
+- **內網部署的 LLM**（Azure OpenAI 在醫院 tenant、Ollama 跑在本地 server、HIS 廠商提供的內網 LLM）→ 完全合規
+- **外部公開 LLM**（ChatGPT、Claude、Gemini、Copilot）→ 規劃 schema 時用沒問題；後續實際處理病患資料時要走醫院核准的 pipeline
+
+Microsoft 在醫院端最積極做合規部署 — 如果你醫院已經用 Microsoft 365 / Azure 服務，Copilot 多半已透過 IT 部門合規通道進來，問你的院方 IT 確認即可。
+
+---
+
 ## 如果你的 AI 不知道要往哪看
 
-新一代的 AI（ChatGPT 4.x、Claude Sonnet 4.6+、Gemini 2.5+）通常拿到 GitHub URL 就會自己抓 README 跟主要 spec 看。如果你發現 AI 沒抓對重點，可以指引它讀這幾個檔案：
+新一代的 AI（ChatGPT 4.x、Claude Sonnet 4.6+、Gemini 2.5+、Microsoft Copilot、本地端 70B+ 模型如 Llama 3.x / Qwen）通常拿到 GitHub URL 就會自己抓 README 跟主要 spec 看。如果你發現 AI 沒抓對重點，可以指引它讀這幾個檔案：
 
 1. [`docs/overview.md`](overview.md) — 5 分鐘整體介紹
 2. [`spec/v0.1/authoring-spec.md`](../spec/v0.1/authoring-spec.md) — 完整 schema 規格

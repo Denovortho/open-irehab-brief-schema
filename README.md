@@ -11,11 +11,13 @@
 
 ## 👋 給醫師的快速入口
 
-**你不需要會工程。** 把這個 repo 連結交給你慣用的 AI 助手（ChatGPT / Claude / Gemini），它會根據這份藍圖幫你規劃自己科別的診前問卷：
+**你不需要會工程。** 把這個 repo 連結交給你慣用的 AI 助手 — **ChatGPT / Claude / Gemini / Microsoft Copilot**，或你醫院內部部署的本地端 LLM（Ollama / Azure OpenAI / HIS 內網 LLM 都行） — 它會根據這份藍圖幫你規劃自己科別的診前問卷：
 
 - 為你的科別（婦科 / 神經 / 身心 / 家醫 / 急診…）設計 8-10 題結構化問卷
 - 把現有的紙本問卷轉成符合本 schema 的 JSON 格式
 - 規劃如何把問卷接進你的診所 / 醫院系統
+
+> **資料合規考量：** 如果你診所 / 醫院規範不允許把臨床內容送到外部 AI（這在台灣 / 美國 / 歐盟醫院都很常見），就用內網 LLM。Schema 本身公開，內網 LLM 拿來規劃完全合規。
 
 **直接複製貼上的 prompt 範例 + 詳細工作流：[`docs/for-doctors.md`](docs/for-doctors.md)**
 
