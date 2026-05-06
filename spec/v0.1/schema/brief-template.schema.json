@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://denovortho.com/schemas/irehab-brief-schema/v1/brief-template.schema.json",
+  "title": "iRehab Brief Schema — Authoring Format (v0.1)",
+  "description": "JSON Schema (Draft 2020-12) for authoring iRehab Brief templates. See spec/v0.1/authoring-spec.md for full text. Cross-field rules noted in $comment fields require a reference validator beyond plain Schema enforcement.",
+  "type": "object",
+  "required": ["specVersion", "id", "version", "templateName", "questions"],
+  "properties": {
+    "specVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Spec version this template conforms to (semver). Current: 0.1.0."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Stable template identifier (slug)."
+    },
+    "version": {
+      "type": "string",
+      "description": "Template's own version string (independent of specVersion)."
+    },
+    "templateName": { "$ref": "#/$defs/localizedObject" },
+    "specialty": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Specialty slug. Free value; recommend ICD/Nice categorization mapping."
+    },
+    "summaryStyle": {
+      "enum": ["soap_oneliner", "narrative", "bulleted"],
+      "description": "Hint for downstream SOAP processor."
+    },
+    "vocabularySeeds": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true,
+      "description": "Non-binding vocabulary hints to assist downstream NLP."
+    },
+    "redFlagModuleSuggestions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/redFlagModuleRef" },
+      "uniqueItems": true,
+      "description": "Red flag modules suggested for this template."
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": { "$ref": "#/$defs/question" },
+      "$comment": "Cross-field rule: question.id MUST be unique across this array. Reference validator must enforce."
+    },
+    "authoringDisclaimer": {
+      "$ref": "#/$defs/localizedObject",
+      "description": "Doctor-facing disclaimer (authoring context). Example: 'You are clinical author of any draft you publish.'"
+    },
+    "patientDisclaimer": {
+      "$ref": "#/$defs/localizedObject",
+      "description": "Patient-facing disclaimer (rendered to end user)."
+    },
+    "clinicalReviewer": {
+      "type": "object",
+      "required": ["doctorName", "specialty", "attestedAt"],
+      "properties": {
+        "doctorId": { "type": "string" },
+        "doctorName": { "type": "string", "minLength": 1 },
+        "specialty": { "type": "string", "minLength": 1 },
+        "attestedAt": { "type": "string", "format": "date-time" },
+        "attestationId": { "type": "string" },
+        "credentials": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "reviewStatus": {
+      "enum": ["draft", "internal_test_only", "approved", "deprecated"]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "localizedObject": {
+      "description": "Locale → string map. v0.1 whitelist: zh-TW, en, ja, ko, es, vi, id. Authoring REQUIRES zh-TW + en at minimum (rendering may fallback per spec §4.3).",
+      "type": "object",
+      "minProperties": 2,
+      "patternProperties": {
+        "^(zh-TW|en|ja|ko|es|vi|id)$": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false,
+      "$comment": "Cross-field rule: at least one of {zh-TW, en} must be present for authoring. Reference validator must enforce."
+    },
+    "redFlagModuleRef": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "minLength": 1,
+      "description": "Reference to a red flag module id. Module catalog defined in spec/v0.1/red-flag-modules.md."
+    },
+    "question": {
+      "type": "object",
+      "required": ["id", "type", "label"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "type": {
+          "enum": ["text", "select", "multiselect", "boolean", "scale", "date"]
+        },
+        "label": { "$ref": "#/$defs/localizedObject" },
+        "helpText": { "$ref": "#/$defs/localizedObject" },
+        "required": { "type": "boolean", "default": false },
+        "redFlagModuleRefs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/redFlagModuleRef" },
+          "uniqueItems": true
+        },
+        "source": {
+          "enum": [
+            "anchor",
+            "anchor_edited",
+            "custom_added",
+            "custom_edited",
+            "imported",
+            "unknown"
+          ]
+        },
+        "originalQuestionId": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "originalLabel": { "$ref": "#/$defs/localizedObject" },
+        "editedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "text" } }, "required": ["type"] },
+          "then": {
+            "properties": {
+              "maxChars": { "type": "integer", "minimum": 1, "maximum": 5000, "default": 200 },
+              "multiline": { "type": "boolean", "default": false },
+              "formatHint": {
+                "enum": ["date", "time", "datetime", "email", "uri", "phone", "id"]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "type": { "enum": ["select", "multiselect"] } },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["options"],
+            "properties": {
+              "options": { "$ref": "#/$defs/optionList" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "scale" } }, "required": ["type"] },
+          "then": {
+            "required": ["min", "max"],
+            "properties": {
+              "min": { "type": "integer" },
+              "max": { "type": "integer" },
+              "step": { "type": "integer", "minimum": 1, "default": 1 },
+              "labels": {
+                "type": "object",
+                "properties": {
+                  "min": { "$ref": "#/$defs/localizedObject" },
+                  "max": { "$ref": "#/$defs/localizedObject" },
+                  "midpoint": { "$ref": "#/$defs/localizedObject" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "$comment": "Cross-field rule: scale.min < scale.max. Reference validator must enforce."
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "date" } }, "required": ["type"] },
+          "then": {
+            "properties": {
+              "format": { "type": "string", "default": "YYYY-MM-DD" },
+              "approximate": { "type": "boolean", "default": false },
+              "min": { "type": "string" },
+              "max": {
+                "type": "string",
+                "description": "ISO 8601 date or 'today' literal (evaluated in patient local timezone)."
+              },
+              "timezone": {
+                "type": "string",
+                "description": "IANA timezone name (e.g. 'Asia/Taipei'). Defaults to patient local."
+              }
+            }
+          }
+        }
+      ]
+    },
+    "optionList": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["value", "label"],
+        "properties": {
+          "value": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "minLength": 1,
+            "description": "Stable machine value. NEVER displayed to patient."
+          },
+          "label": { "$ref": "#/$defs/localizedObject" }
+        },
+        "additionalProperties": false
+      },
+      "$comment": "Cross-field rule: option.value MUST be unique within a single question's options[]. Reference validator must enforce."
+    }
+  }
+}

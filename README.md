@@ -82,7 +82,7 @@
 
 ---
 
-## Repo 結構（v0.1.0）
+## Repo 結構
 
 ```
 .
@@ -94,26 +94,55 @@
 ├── CHANGELOG.md
 ├── spec/
 │   └── v0.1/
-│       ├── authoring-spec.md  authoring format 主 spec
-│       └── red-flag-modules.md  red flag module catalog（公開接口）
+│       ├── authoring-spec.md           authoring format 主 spec
+│       ├── red-flag-modules.md         red flag module catalog（公開接口）
+│       └── schema/
+│           └── brief-template.schema.json  JSON Schema (Draft 2020-12)
+├── examples/
+│   ├── orthopedics-minimal.json         4-question minimal example
+│   └── orthopedics-complete.json        8-question complete example
 └── docs/
+    ├── overview.md            5-min 高層次介紹（建議先看）
     ├── governing-law.md       台灣法準據法宣告
     └── brief-vs-prom.md       Brief 與 PROM 概念區分
 ```
 
-**v0.2 規劃中（非本 release）：**
-- `spec/v0.1/schema/brief-template.schema.json`（JSON Schema Draft 2020-12 reference）
-- `examples/orthopedics-minimal.json` / `orthopedics-complete.json`
-- 其他 specialty pack examples（歡迎 community 貢獻）
-- Reference validator（Apache-2.0）
+**規劃中（v0.2+，歡迎 community 貢獻）：**
+- Reference validator（Apache-2.0，跑 cross-field rules）
+- 其他 specialty pack examples（婦泌 / 神內 / 身心 / 復健 / 急診…）
+- HIS integration patterns 文件
+- Webhook receiver reference implementation
 
 ---
 
 ## Getting Started
 
-1. **看 spec：** [`spec/v0.1/authoring-spec.md`](spec/v0.1/authoring-spec.md)
-2. **看 red flag module 接口：** [`spec/v0.1/red-flag-modules.md`](spec/v0.1/red-flag-modules.md)
-3. **想貢獻 specialty pack？** 先看 [`CONTRIBUTING.md`](CONTRIBUTING.md)
+1. **5 分鐘了解全貌：** [`docs/overview.md`](docs/overview.md)
+2. **看 spec 細節：** [`spec/v0.1/authoring-spec.md`](spec/v0.1/authoring-spec.md)
+3. **看 example brief 怎麼長：** [`examples/orthopedics-complete.json`](examples/orthopedics-complete.json)
+4. **驗證自己的 brief template：** 用 [`spec/v0.1/schema/brief-template.schema.json`](spec/v0.1/schema/brief-template.schema.json)（任何 JSON Schema Draft 2020-12 validator，例如 [`ajv`](https://ajv.js.org/)）
+5. **想貢獻 specialty pack？** 先看 [`CONTRIBUTING.md`](CONTRIBUTING.md)
+
+### 快速驗證範例（Node.js + Ajv）
+
+```bash
+npm install ajv ajv-formats
+```
+
+```js
+const Ajv = require('ajv/dist/2020');
+const addFormats = require('ajv-formats');
+const fs = require('fs');
+
+const ajv = new Ajv({allErrors: true, strict: false});
+addFormats(ajv);
+
+const schema = JSON.parse(fs.readFileSync('spec/v0.1/schema/brief-template.schema.json'));
+const example = JSON.parse(fs.readFileSync('examples/orthopedics-complete.json'));
+
+const validate = ajv.compile(schema);
+console.log(validate(example) ? 'PASS ✓' : validate.errors);
+```
 
 ---
 

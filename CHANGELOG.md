@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [v0.1.1] — 2026-05-06
+
+**Patch release: add JSON Schema reference, examples, and overview doc.**
+
+### Added
+
+- JSON Schema (Draft 2020-12) reference at [`spec/v0.1/schema/brief-template.schema.json`](spec/v0.1/schema/brief-template.schema.json)
+  - Full structural validation: required fields, locale whitelist, question types, option shape
+  - Cross-field rules documented in `$comment` (validator must enforce: question.id uniqueness, scale.min<max, option.value uniqueness)
+- 2 example brief templates at [`examples/`](examples/)
+  - `orthopedics-minimal.json` — 4-question minimal example
+  - `orthopedics-complete.json` — 8-question complete example with red flag module references, clinicalReviewer, etc.
+  - Both pass JSON Schema validation against the v0.1 schema
+- High-level overview at [`docs/overview.md`](docs/overview.md)
+  - "What is / is NOT" / "Why open source" / design trade-offs / roadmap
+- README quick-start with Ajv validation snippet
+
+### No spec changes
+
+The `spec/v0.1/authoring-spec.md` itself is unchanged — this is purely an
+additive release providing the reference artifacts that v0.1.0 promised.
+
+---
+
 ## [v0.1.0] — 2026-05-06
 
 **Initial public release — spec only.**

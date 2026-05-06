@@ -1,0 +1,73 @@
+{
+  "specVersion": "0.1.0",
+  "id": "ortho_minimal_v1",
+  "version": "1.0",
+  "templateName": {
+    "zh-TW": "骨科極簡初診",
+    "en": "Orthopedics minimal intake"
+  },
+  "specialty": "orthopedics",
+  "summaryStyle": "soap_oneliner",
+  "questions": [
+    {
+      "id": "main_complaint",
+      "type": "text",
+      "label": {
+        "zh-TW": "您最不舒服的部位 / 症狀",
+        "en": "Primary symptom or affected area"
+      },
+      "required": true,
+      "maxChars": 200
+    },
+    {
+      "id": "onset",
+      "type": "select",
+      "label": {
+        "zh-TW": "症狀起始",
+        "en": "Onset"
+      },
+      "options": [
+        {
+          "value": "acute",
+          "label": { "zh-TW": "急性（< 1 週）", "en": "Acute (<1wk)" }
+        },
+        {
+          "value": "subacute",
+          "label": { "zh-TW": "亞急性（1-6 週）", "en": "Subacute (1-6wk)" }
+        },
+        {
+          "value": "chronic",
+          "label": { "zh-TW": "慢性（> 6 週）", "en": "Chronic (>6wk)" }
+        }
+      ],
+      "required": true
+    },
+    {
+      "id": "pain_intensity",
+      "type": "scale",
+      "label": {
+        "zh-TW": "疼痛強度",
+        "en": "Pain intensity"
+      },
+      "min": 0,
+      "max": 10,
+      "labels": {
+        "min": { "zh-TW": "不痛", "en": "No pain" },
+        "max": { "zh-TW": "最痛", "en": "Worst imaginable" }
+      }
+    },
+    {
+      "id": "trauma_history",
+      "type": "boolean",
+      "label": {
+        "zh-TW": "近期有外傷史嗎？",
+        "en": "Recent trauma history?"
+      },
+      "redFlagModuleRefs": ["fracture_warning_module"]
+    }
+  ],
+  "patientDisclaimer": {
+    "zh-TW": "本問卷為診前資料蒐集工具，非醫療建議。實際診斷由您的醫師進行。",
+    "en": "This intake form is a pre-visit data collection tool, not medical advice. Diagnosis by your physician."
+  }
+}

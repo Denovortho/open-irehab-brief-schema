@@ -1,0 +1,169 @@
+{
+  "specVersion": "0.1.0",
+  "id": "ortho_generic_v1",
+  "version": "1.0",
+  "templateName": {
+    "zh-TW": "骨科一般初診",
+    "en": "Orthopedics generic intake"
+  },
+  "specialty": "orthopedics",
+  "summaryStyle": "soap_oneliner",
+  "vocabularySeeds": ["pain", "swelling", "stiffness", "weakness", "numbness"],
+  "redFlagModuleSuggestions": ["fracture_warning_module", "neurovascular_compromise_module"],
+  "questions": [
+    {
+      "id": "main_complaint",
+      "type": "text",
+      "label": {
+        "zh-TW": "您最不舒服的部位 / 症狀",
+        "en": "Primary symptom or affected area"
+      },
+      "helpText": {
+        "zh-TW": "請用您自己的話描述（例如：右肩抬不起來）",
+        "en": "Describe in your own words (e.g., 'right shoulder can't lift')"
+      },
+      "required": true,
+      "maxChars": 300,
+      "multiline": true,
+      "source": "anchor"
+    },
+    {
+      "id": "onset",
+      "type": "select",
+      "label": {
+        "zh-TW": "症狀起始",
+        "en": "Onset"
+      },
+      "options": [
+        {
+          "value": "acute",
+          "label": { "zh-TW": "急性（< 1 週）", "en": "Acute (<1wk)" }
+        },
+        {
+          "value": "subacute",
+          "label": { "zh-TW": "亞急性（1-6 週）", "en": "Subacute (1-6wk)" }
+        },
+        {
+          "value": "chronic",
+          "label": { "zh-TW": "慢性（> 6 週）", "en": "Chronic (>6wk)" }
+        }
+      ],
+      "required": true,
+      "source": "anchor"
+    },
+    {
+      "id": "pain_intensity",
+      "type": "scale",
+      "label": {
+        "zh-TW": "疼痛強度",
+        "en": "Pain intensity"
+      },
+      "helpText": {
+        "zh-TW": "0 = 不痛；10 = 你能想像的最痛",
+        "en": "0 = no pain; 10 = worst you can imagine"
+      },
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "labels": {
+        "min": { "zh-TW": "不痛", "en": "No pain" },
+        "max": { "zh-TW": "最痛", "en": "Worst imaginable" },
+        "midpoint": { "zh-TW": "中等疼痛", "en": "Moderate pain" }
+      },
+      "required": true,
+      "source": "anchor"
+    },
+    {
+      "id": "pain_quality",
+      "type": "multiselect",
+      "label": {
+        "zh-TW": "疼痛性質（可複選）",
+        "en": "Pain quality (multi-select)"
+      },
+      "options": [
+        { "value": "sharp", "label": { "zh-TW": "刺痛", "en": "Sharp" } },
+        { "value": "dull", "label": { "zh-TW": "鈍痛", "en": "Dull" } },
+        { "value": "burning", "label": { "zh-TW": "灼熱", "en": "Burning" } },
+        { "value": "throbbing", "label": { "zh-TW": "悸動", "en": "Throbbing" } },
+        { "value": "electric", "label": { "zh-TW": "電擊感", "en": "Electric" } }
+      ],
+      "source": "anchor"
+    },
+    {
+      "id": "trauma_history",
+      "type": "boolean",
+      "label": {
+        "zh-TW": "近期有外傷史嗎？",
+        "en": "Recent trauma history?"
+      },
+      "helpText": {
+        "zh-TW": "包括跌倒、撞擊、運動傷害等",
+        "en": "Including falls, impacts, sports injuries"
+      },
+      "required": true,
+      "redFlagModuleRefs": ["fracture_warning_module"],
+      "source": "anchor"
+    },
+    {
+      "id": "trauma_date",
+      "type": "date",
+      "label": {
+        "zh-TW": "外傷發生日期（若適用）",
+        "en": "Trauma date (if applicable)"
+      },
+      "approximate": true,
+      "max": "today",
+      "timezone": "Asia/Taipei",
+      "source": "anchor"
+    },
+    {
+      "id": "neurovascular_symptoms",
+      "type": "multiselect",
+      "label": {
+        "zh-TW": "肢體症狀（可複選）",
+        "en": "Limb symptoms (multi-select)"
+      },
+      "helpText": {
+        "zh-TW": "若有以下情況請勾選；可能需要立即評估",
+        "en": "Check if present; may require immediate evaluation"
+      },
+      "options": [
+        { "value": "numbness", "label": { "zh-TW": "麻木感", "en": "Numbness" } },
+        { "value": "weakness", "label": { "zh-TW": "無力", "en": "Weakness" } },
+        { "value": "color_change", "label": { "zh-TW": "膚色改變（蒼白/紫紺）", "en": "Color change (pale/cyanotic)" } },
+        { "value": "cold_limb", "label": { "zh-TW": "肢體冰冷", "en": "Cold limb" } },
+        { "value": "none", "label": { "zh-TW": "無上述症狀", "en": "None of the above" } }
+      ],
+      "redFlagModuleRefs": ["neurovascular_compromise_module"],
+      "source": "anchor"
+    },
+    {
+      "id": "previous_treatment",
+      "type": "text",
+      "label": {
+        "zh-TW": "曾經做過的治療（藥物 / 復健 / 手術 / 其他）",
+        "en": "Previous treatments (medication / rehab / surgery / other)"
+      },
+      "maxChars": 500,
+      "multiline": true,
+      "source": "anchor"
+    }
+  ],
+  "authoringDisclaimer": {
+    "zh-TW": "本模板為平台 anchor 起點；publish 時你仍是該題版本的臨床作者。",
+    "en": "Platform anchor starter; you remain clinical author of any draft you publish."
+  },
+  "patientDisclaimer": {
+    "zh-TW": "本問卷為診前資料蒐集工具，非醫療建議。實際診斷由您的醫師進行。若您有立即就醫需要請直接前往急診。",
+    "en": "This intake form is a pre-visit data collection tool, not medical advice. Diagnosis by your physician. Seek emergency care directly if urgently needed."
+  },
+  "clinicalReviewer": {
+    "doctorName": "林佳緯",
+    "specialty": "orthopedics",
+    "attestedAt": "2026-05-06T00:00:00+08:00",
+    "credentials": "Orthopedic surgeon, MD"
+  },
+  "reviewStatus": "approved",
+  "createdAt": "2026-05-06T00:00:00+08:00",
+  "updatedAt": "2026-05-06T00:00:00+08:00"
+}
