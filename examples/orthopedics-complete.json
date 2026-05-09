@@ -97,7 +97,7 @@
       "step": 1,
       "labels": {
         "min": { "zh-TW": "不痛", "en": "No pain", "vi": "Không đau", "es": "Sin dolor", "id": "Tidak nyeri", "ja": "痛みなし", "ko": "통증 없음" },
-        "max": { "zh-TW": "最痛", "en": "Worst imaginable", "vi": "Tệ nhất có thể", "es": "Lo peor imaginable", "id": "Terburuk yang bisa dibayangkan", "ja": "最大の痛み", "ko": "상상 최악" },
+        "max": { "zh-TW": "最痛", "en": "Worst imaginable", "vi": "Tệ nhất có thể", "es": "Lo peor imaginable", "id": "Terburuk yang bisa dibayangkan", "ja": "最大の痛み", "ko": "상상할 수 있는 가장 심한 통증" },
         "midpoint": { "zh-TW": "中等疼痛", "en": "Moderate pain", "vi": "Đau vừa", "es": "Dolor moderado", "id": "Nyeri sedang", "ja": "中等度の痛み", "ko": "중등도 통증" }
       },
       "required": true,
@@ -116,7 +116,7 @@
         "ko": "통증 성질 (복수 선택 가능)"
       },
       "options": [
-        { "value": "sharp", "label": { "zh-TW": "刺痛", "en": "Sharp", "vi": "đau nhói", "es": "agudo", "id": "nyeri tajam", "ja": "刺すような痛み", "ko": "찌르는 통증" } },
+        { "value": "sharp", "label": { "zh-TW": "刺痛", "en": "Sharp", "vi": "đau nhói", "es": "punzante", "id": "nyeri tajam", "ja": "刺すような痛み", "ko": "찌르는 통증" } },
         { "value": "dull", "label": { "zh-TW": "鈍痛", "en": "Dull", "vi": "đau âm ỉ", "es": "sordo", "id": "nyeri tumpul", "ja": "鈍痛", "ko": "둔한 통증" } },
         { "value": "burning", "label": { "zh-TW": "灼熱", "en": "Burning", "vi": "đau rát", "es": "ardor", "id": "nyeri terbakar", "ja": "灼熱感", "ko": "타는 듯한 통증" } },
         { "value": "throbbing", "label": { "zh-TW": "悸動", "en": "Throbbing", "vi": "đau theo nhịp tim", "es": "pulsátil", "id": "nyeri berdenyut", "ja": "拍動性疼痛", "ko": "욱신거리는 통증" } },
@@ -188,7 +188,7 @@
         "ko": "해당되면 체크하세요; 즉각적인 평가가 필요할 수 있습니다"
       },
       "options": [
-        { "value": "numbness", "label": { "zh-TW": "麻木感", "en": "Numbness", "vi": "tê", "es": "entumecimiento", "id": "mati rasa", "ja": "麻木感", "ko": "저림" } },
+        { "value": "numbness", "label": { "zh-TW": "麻木感", "en": "Numbness", "vi": "tê", "es": "entumecimiento", "id": "mati rasa", "ja": "しびれ", "ko": "저림" } },
         { "value": "weakness", "label": { "zh-TW": "無力", "en": "Weakness", "vi": "yếu", "es": "debilidad", "id": "kelemahan", "ja": "脱力感", "ko": "근력 저하" } },
         { "value": "color_change", "label": { "zh-TW": "膚色改變（蒼白/紫紺）", "en": "Color change (pale/cyanotic)", "vi": "thay đổi màu da (nhợt/tím)", "es": "cambio de color (pálido/cianótico)", "id": "perubahan warna kulit (pucat/kebiruan)", "ja": "皮膚色変化（蒼白/チアノーゼ）", "ko": "피부색 변화 (창백/청색증)" } },
         { "value": "cold_limb", "label": { "zh-TW": "肢體冰冷", "en": "Cold limb", "vi": "chi lạnh", "es": "extremidad fría", "id": "anggota gerak dingin", "ja": "肢体の冷感", "ko": "사지 냉감" } },

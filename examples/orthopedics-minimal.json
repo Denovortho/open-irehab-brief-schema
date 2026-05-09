@@ -73,7 +73,7 @@
       "max": 10,
       "labels": {
         "min": { "zh-TW": "不痛", "en": "No pain", "vi": "Không đau", "es": "Sin dolor", "id": "Tidak nyeri", "ja": "痛みなし", "ko": "통증 없음" },
-        "max": { "zh-TW": "最痛", "en": "Worst imaginable", "vi": "Tệ nhất có thể", "es": "Lo peor imaginable", "id": "Terburuk yang bisa dibayangkan", "ja": "最大の痛み", "ko": "상상 최악" }
+        "max": { "zh-TW": "最痛", "en": "Worst imaginable", "vi": "Tệ nhất có thể", "es": "Lo peor imaginable", "id": "Terburuk yang bisa dibayangkan", "ja": "最大の痛み", "ko": "상상할 수 있는 가장 심한 통증" }
       }
     },
     {
