@@ -1,12 +1,10 @@
-# Created 2026-05-09 to attach SBOM evidence to brief-schema releases.
+# Tracks shared reusable workflow at cutemo0953/.github @v1.
 # Spec: ~/Downloads/SPEC_SBOM.md Rev 0.5.
+#
 # Trigger = release event (brief-schema uses v0.1.x tag releases for
 # spec revisions). Each release attaches CycloneDX + SPDX SBOMs as
 # assets. workflow_dispatch enables initial verification before any
 # release exists.
-#
-# Pinned to commit SHA during initial rollout. Switch to @v1 after
-# dot-github v1 tag move to 2583c45.
 #
 # permissions: contents: write — required by reusable's release-attach
 # step (gh release upload). Reusable intentionally has no top-level
@@ -17,11 +15,11 @@ name: SBOM
 on:
   release:
     types: [published]
-  workflow_dispatch:  # manual trigger for initial verification
+  workflow_dispatch:
 
 jobs:
   sbom:
-    uses: cutemo0953/.github/.github/workflows/sbom.yml@2583c45ba9c421da37056f3a96ececa6d63180b3
+    uses: cutemo0953/.github/.github/workflows/sbom.yml@v1
     with:
       language: docs
       artifact-prefix: open-brief-schema-sbom
