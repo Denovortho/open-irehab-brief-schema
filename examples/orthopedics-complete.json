@@ -4,7 +4,12 @@
   "version": "1.0",
   "templateName": {
     "zh-TW": "骨科一般初診",
-    "en": "Orthopedics generic intake"
+    "en": "Orthopedics generic intake",
+    "vi": "Khám lần đầu chỉnh hình tổng quát",
+    "es": "Consulta inicial de ortopedia general",
+    "id": "Kunjungan awal ortopedi umum",
+    "ja": "整形外科一般初診",
+    "ko": "정형외과 일반 초진"
   },
   "specialty": "orthopedics",
   "summaryStyle": "soap_oneliner",
@@ -16,11 +21,21 @@
       "type": "text",
       "label": {
         "zh-TW": "您最不舒服的部位 / 症狀",
-        "en": "Primary symptom or affected area"
+        "en": "Primary symptom or affected area",
+        "vi": "Vùng / triệu chứng khó chịu nhất",
+        "es": "Síntoma principal o zona afectada",
+        "id": "Bagian tubuh / gejala yang paling tidak nyaman",
+        "ja": "最も不快な部位 / 症状",
+        "ko": "가장 불편한 부위 / 증상"
       },
       "helpText": {
         "zh-TW": "請用您自己的話描述（例如：右肩抬不起來）",
-        "en": "Describe in your own words (e.g., 'right shoulder can't lift')"
+        "en": "Describe in your own words (e.g., 'right shoulder can't lift')",
+        "vi": "Mô tả bằng lời của bạn (ví dụ: 'vai phải không giơ lên được')",
+        "es": "Describa en sus propias palabras (p. ej., 'el hombro derecho no puede levantarse')",
+        "id": "Jelaskan dengan kata-kata Anda (mis. 'bahu kanan tidak bisa diangkat')",
+        "ja": "ご自分の言葉で説明してください（例：右肩が上がらない）",
+        "ko": "본인의 말로 설명하세요 (예: '오른쪽 어깨를 들 수 없다')"
       },
       "required": true,
       "maxChars": 300,
@@ -32,20 +47,25 @@
       "type": "select",
       "label": {
         "zh-TW": "症狀起始",
-        "en": "Onset"
+        "en": "Onset",
+        "vi": "Khởi phát triệu chứng",
+        "es": "Inicio de síntomas",
+        "id": "Awal gejala",
+        "ja": "症状の発症",
+        "ko": "증상 시작"
       },
       "options": [
         {
           "value": "acute",
-          "label": { "zh-TW": "急性（< 1 週）", "en": "Acute (<1wk)" }
+          "label": { "zh-TW": "急性（< 1 週）", "en": "Acute (<1wk)", "vi": "cấp tính (<1 tuần)", "es": "agudo (<1 semana)", "id": "akut (<1 minggu)", "ja": "急性（1週間未満）", "ko": "급성 (<1주)" }
         },
         {
           "value": "subacute",
-          "label": { "zh-TW": "亞急性（1-6 週）", "en": "Subacute (1-6wk)" }
+          "label": { "zh-TW": "亞急性（1-6 週）", "en": "Subacute (1-6wk)", "vi": "bán cấp (1-6 tuần)", "es": "subagudo (1-6 semanas)", "id": "subakut (1-6 minggu)", "ja": "亜急性（1〜6週間）", "ko": "아급성 (1-6주)" }
         },
         {
           "value": "chronic",
-          "label": { "zh-TW": "慢性（> 6 週）", "en": "Chronic (>6wk)" }
+          "label": { "zh-TW": "慢性（> 6 週）", "en": "Chronic (>6wk)", "vi": "mãn tính (>6 tuần)", "es": "crónico (>6 semanas)", "id": "kronis (>6 minggu)", "ja": "慢性（6週間以上）", "ko": "만성 (>6주)" }
         }
       ],
       "required": true,
@@ -56,19 +76,29 @@
       "type": "scale",
       "label": {
         "zh-TW": "疼痛強度",
-        "en": "Pain intensity"
+        "en": "Pain intensity",
+        "vi": "Cường độ đau",
+        "es": "Intensidad del dolor",
+        "id": "Intensitas nyeri",
+        "ja": "疼痛強度",
+        "ko": "통증 강도"
       },
       "helpText": {
         "zh-TW": "0 = 不痛；10 = 你能想像的最痛",
-        "en": "0 = no pain; 10 = worst you can imagine"
+        "en": "0 = no pain; 10 = worst you can imagine",
+        "vi": "0 = không đau; 10 = tệ nhất bạn có thể tưởng tượng",
+        "es": "0 = sin dolor; 10 = el peor que pueda imaginar",
+        "id": "0 = tidak nyeri; 10 = nyeri terburuk yang bisa Anda bayangkan",
+        "ja": "0 = 痛みなし；10 = 想像できる最大の痛み",
+        "ko": "0 = 통증 없음; 10 = 상상할 수 있는 최악의 통증"
       },
       "min": 0,
       "max": 10,
       "step": 1,
       "labels": {
-        "min": { "zh-TW": "不痛", "en": "No pain" },
-        "max": { "zh-TW": "最痛", "en": "Worst imaginable" },
-        "midpoint": { "zh-TW": "中等疼痛", "en": "Moderate pain" }
+        "min": { "zh-TW": "不痛", "en": "No pain", "vi": "Không đau", "es": "Sin dolor", "id": "Tidak nyeri", "ja": "痛みなし", "ko": "통증 없음" },
+        "max": { "zh-TW": "最痛", "en": "Worst imaginable", "vi": "Tệ nhất có thể", "es": "Lo peor imaginable", "id": "Terburuk yang bisa dibayangkan", "ja": "最大の痛み", "ko": "상상 최악" },
+        "midpoint": { "zh-TW": "中等疼痛", "en": "Moderate pain", "vi": "Đau vừa", "es": "Dolor moderado", "id": "Nyeri sedang", "ja": "中等度の痛み", "ko": "중등도 통증" }
       },
       "required": true,
       "source": "anchor"
@@ -78,14 +108,19 @@
       "type": "multiselect",
       "label": {
         "zh-TW": "疼痛性質（可複選）",
-        "en": "Pain quality (multi-select)"
+        "en": "Pain quality (multi-select)",
+        "vi": "Tính chất đau (có thể chọn nhiều)",
+        "es": "Calidad del dolor (selección múltiple)",
+        "id": "Sifat nyeri (bisa pilih lebih dari satu)",
+        "ja": "疼痛の性質（複数選択可）",
+        "ko": "통증 성질 (복수 선택 가능)"
       },
       "options": [
-        { "value": "sharp", "label": { "zh-TW": "刺痛", "en": "Sharp" } },
-        { "value": "dull", "label": { "zh-TW": "鈍痛", "en": "Dull" } },
-        { "value": "burning", "label": { "zh-TW": "灼熱", "en": "Burning" } },
-        { "value": "throbbing", "label": { "zh-TW": "悸動", "en": "Throbbing" } },
-        { "value": "electric", "label": { "zh-TW": "電擊感", "en": "Electric" } }
+        { "value": "sharp", "label": { "zh-TW": "刺痛", "en": "Sharp", "vi": "đau nhói", "es": "agudo", "id": "nyeri tajam", "ja": "刺すような痛み", "ko": "찌르는 통증" } },
+        { "value": "dull", "label": { "zh-TW": "鈍痛", "en": "Dull", "vi": "đau âm ỉ", "es": "sordo", "id": "nyeri tumpul", "ja": "鈍痛", "ko": "둔한 통증" } },
+        { "value": "burning", "label": { "zh-TW": "灼熱", "en": "Burning", "vi": "đau rát", "es": "ardor", "id": "nyeri terbakar", "ja": "灼熱感", "ko": "타는 듯한 통증" } },
+        { "value": "throbbing", "label": { "zh-TW": "悸動", "en": "Throbbing", "vi": "đau theo nhịp tim", "es": "pulsátil", "id": "nyeri berdenyut", "ja": "拍動性疼痛", "ko": "욱신거리는 통증" } },
+        { "value": "electric", "label": { "zh-TW": "電擊感", "en": "Electric", "vi": "đau như điện giật", "es": "eléctrico", "id": "nyeri seperti tersengat listrik", "ja": "電撃痛", "ko": "전기가 오는 통증" } }
       ],
       "source": "anchor"
     },
@@ -94,11 +129,21 @@
       "type": "boolean",
       "label": {
         "zh-TW": "近期有外傷史嗎？",
-        "en": "Recent trauma history?"
+        "en": "Recent trauma history?",
+        "vi": "Có tiền sử chấn thương gần đây không?",
+        "es": "¿Historial de traumatismo reciente?",
+        "id": "Ada riwayat trauma baru-baru ini?",
+        "ja": "最近の外傷歴はありますか？",
+        "ko": "최근 외상 병력이 있나요?"
       },
       "helpText": {
         "zh-TW": "包括跌倒、撞擊、運動傷害等",
-        "en": "Including falls, impacts, sports injuries"
+        "en": "Including falls, impacts, sports injuries",
+        "vi": "Bao gồm ngã, va chạm, chấn thương thể thao",
+        "es": "Incluye caídas, golpes, lesiones deportivas",
+        "id": "Termasuk jatuh, benturan, cedera olahraga",
+        "ja": "転倒、衝撃、スポーツ障害などを含む",
+        "ko": "낙상, 충격, 스포츠 부상 등 포함"
       },
       "required": true,
       "redFlagModuleRefs": ["fracture_warning_module"],
@@ -109,7 +154,12 @@
       "type": "date",
       "label": {
         "zh-TW": "外傷發生日期（若適用）",
-        "en": "Trauma date (if applicable)"
+        "en": "Trauma date (if applicable)",
+        "vi": "Ngày xảy ra chấn thương (nếu có)",
+        "es": "Fecha del traumatismo (si aplica)",
+        "id": "Tanggal trauma (jika ada)",
+        "ja": "外傷発生日（該当する場合）",
+        "ko": "외상 발생 날짜 (해당하는 경우)"
       },
       "approximate": true,
       "max": "today",
@@ -121,18 +171,28 @@
       "type": "multiselect",
       "label": {
         "zh-TW": "肢體症狀（可複選）",
-        "en": "Limb symptoms (multi-select)"
+        "en": "Limb symptoms (multi-select)",
+        "vi": "Triệu chứng chi (có thể chọn nhiều)",
+        "es": "Síntomas de la extremidad (selección múltiple)",
+        "id": "Gejala anggota gerak (bisa pilih lebih dari satu)",
+        "ja": "四肢症状（複数選択可）",
+        "ko": "사지 증상 (복수 선택 가능)"
       },
       "helpText": {
         "zh-TW": "若有以下情況請勾選；可能需要立即評估",
-        "en": "Check if present; may require immediate evaluation"
+        "en": "Check if present; may require immediate evaluation",
+        "vi": "Đánh dấu nếu có; có thể cần đánh giá ngay",
+        "es": "Marque si aplica; puede requerir evaluación inmediata",
+        "id": "Centang jika ada; mungkin perlu evaluasi segera",
+        "ja": "該当する場合はチェックしてください；即時評価が必要な場合があります",
+        "ko": "해당되면 체크하세요; 즉각적인 평가가 필요할 수 있습니다"
       },
       "options": [
-        { "value": "numbness", "label": { "zh-TW": "麻木感", "en": "Numbness" } },
-        { "value": "weakness", "label": { "zh-TW": "無力", "en": "Weakness" } },
-        { "value": "color_change", "label": { "zh-TW": "膚色改變（蒼白/紫紺）", "en": "Color change (pale/cyanotic)" } },
-        { "value": "cold_limb", "label": { "zh-TW": "肢體冰冷", "en": "Cold limb" } },
-        { "value": "none", "label": { "zh-TW": "無上述症狀", "en": "None of the above" } }
+        { "value": "numbness", "label": { "zh-TW": "麻木感", "en": "Numbness", "vi": "tê", "es": "entumecimiento", "id": "mati rasa", "ja": "麻木感", "ko": "저림" } },
+        { "value": "weakness", "label": { "zh-TW": "無力", "en": "Weakness", "vi": "yếu", "es": "debilidad", "id": "kelemahan", "ja": "脱力感", "ko": "근력 저하" } },
+        { "value": "color_change", "label": { "zh-TW": "膚色改變（蒼白/紫紺）", "en": "Color change (pale/cyanotic)", "vi": "thay đổi màu da (nhợt/tím)", "es": "cambio de color (pálido/cianótico)", "id": "perubahan warna kulit (pucat/kebiruan)", "ja": "皮膚色変化（蒼白/チアノーゼ）", "ko": "피부색 변화 (창백/청색증)" } },
+        { "value": "cold_limb", "label": { "zh-TW": "肢體冰冷", "en": "Cold limb", "vi": "chi lạnh", "es": "extremidad fría", "id": "anggota gerak dingin", "ja": "肢体の冷感", "ko": "사지 냉감" } },
+        { "value": "none", "label": { "zh-TW": "無上述症狀", "en": "None of the above", "vi": "Không có triệu chứng trên", "es": "Ninguno de los anteriores", "id": "Tidak ada gejala di atas", "ja": "上記なし", "ko": "해당 없음" } }
       ],
       "redFlagModuleRefs": ["neurovascular_compromise_module"],
       "source": "anchor"
@@ -142,7 +202,12 @@
       "type": "text",
       "label": {
         "zh-TW": "曾經做過的治療（藥物 / 復健 / 手術 / 其他）",
-        "en": "Previous treatments (medication / rehab / surgery / other)"
+        "en": "Previous treatments (medication / rehab / surgery / other)",
+        "vi": "Điều trị trước đây (thuốc / phục hồi chức năng / phẫu thuật / khác)",
+        "es": "Tratamientos previos (medicación / rehabilitación / cirugía / otro)",
+        "id": "Pengobatan sebelumnya (obat-obatan / rehabilitasi / operasi / lainnya)",
+        "ja": "以前の治療（薬物 / リハビリ / 手術 / その他）",
+        "ko": "이전 치료 (약물 / 재활 / 수술 / 기타)"
       },
       "maxChars": 500,
       "multiline": true,
@@ -151,11 +216,21 @@
   ],
   "authoringDisclaimer": {
     "zh-TW": "本模板為平台 anchor 起點；publish 時你仍是該題版本的臨床作者。",
-    "en": "Platform anchor starter; you remain clinical author of any draft you publish."
+    "en": "Platform anchor starter; you remain clinical author of any draft you publish.",
+    "vi": "Mẫu anchor khởi điểm của nền tảng; bạn vẫn là tác giả lâm sàng của bất kỳ bản thảo nào bạn xuất bản.",
+    "es": "Plantilla base de la plataforma; usted sigue siendo el autor clínico de cualquier borrador que publique.",
+    "id": "Template anchor awal platform; Anda tetap menjadi penulis klinis dari setiap draf yang Anda publikasikan.",
+    "ja": "プラットフォームのアンカースターター；publishする草稿の臨床作者はあなたのままです。",
+    "ko": "플랫폼 앵커 시작점; 게시하는 모든 초안의 임상 저자는 여전히 귀하입니다."
   },
   "patientDisclaimer": {
     "zh-TW": "本問卷為診前資料蒐集工具，非醫療建議。實際診斷由您的醫師進行。若您有立即就醫需要請直接前往急診。",
-    "en": "This intake form is a pre-visit data collection tool, not medical advice. Diagnosis by your physician. Seek emergency care directly if urgently needed."
+    "en": "This intake form is a pre-visit data collection tool, not medical advice. Diagnosis by your physician. Seek emergency care directly if urgently needed.",
+    "vi": "Biểu mẫu này là công cụ thu thập dữ liệu trước khám, không phải lời khuyên y tế. Chẩn đoán do bác sĩ của bạn thực hiện. Đến cấp cứu trực tiếp nếu cần khẩn cấp.",
+    "es": "Este formulario es una herramienta de recopilación de datos previos a la consulta, no un consejo médico. El diagnóstico lo realiza su médico. Acuda a urgencias directamente si es urgente.",
+    "id": "Formulir ini adalah alat pengumpulan data pra-kunjungan, bukan saran medis. Diagnosis dilakukan oleh dokter Anda. Pergi langsung ke UGD jika perlu segera.",
+    "ja": "このフォームは診察前のデータ収集ツールであり、医療アドバイスではありません。診断はあなたの医師が行います。緊急の場合は直接救急へ。",
+    "ko": "이 양식은 진료 전 데이터 수집 도구이며 의료 조언이 아닙니다. 진단은 귀하의 의사가 합니다. 긴급 시 응급실로 직접 가세요."
   },
   "clinicalReviewer": {
     "doctorName": "林佳緯",
@@ -165,5 +240,5 @@
   },
   "reviewStatus": "approved",
   "createdAt": "2026-05-06T00:00:00+08:00",
-  "updatedAt": "2026-05-06T00:00:00+08:00"
+  "updatedAt": "2026-05-09T00:00:00+08:00"
 }

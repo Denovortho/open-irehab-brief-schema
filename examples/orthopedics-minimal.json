@@ -4,7 +4,12 @@
   "version": "1.0",
   "templateName": {
     "zh-TW": "骨科極簡初診",
-    "en": "Orthopedics minimal intake"
+    "en": "Orthopedics minimal intake",
+    "vi": "Khám lần đầu chỉnh hình tối giản",
+    "es": "Consulta inicial de ortopedia mínima",
+    "id": "Kunjungan awal ortopedi minimal",
+    "ja": "整形外科最小限初診",
+    "ko": "정형외과 최소 초진"
   },
   "specialty": "orthopedics",
   "summaryStyle": "soap_oneliner",
@@ -14,7 +19,12 @@
       "type": "text",
       "label": {
         "zh-TW": "您最不舒服的部位 / 症狀",
-        "en": "Primary symptom or affected area"
+        "en": "Primary symptom or affected area",
+        "vi": "Vùng / triệu chứng khó chịu nhất",
+        "es": "Síntoma principal o zona afectada",
+        "id": "Bagian tubuh / gejala yang paling tidak nyaman",
+        "ja": "最も不快な部位 / 症状",
+        "ko": "가장 불편한 부위 / 증상"
       },
       "required": true,
       "maxChars": 200
@@ -24,20 +34,25 @@
       "type": "select",
       "label": {
         "zh-TW": "症狀起始",
-        "en": "Onset"
+        "en": "Onset",
+        "vi": "Khởi phát triệu chứng",
+        "es": "Inicio de síntomas",
+        "id": "Awal gejala",
+        "ja": "症状の発症",
+        "ko": "증상 시작"
       },
       "options": [
         {
           "value": "acute",
-          "label": { "zh-TW": "急性（< 1 週）", "en": "Acute (<1wk)" }
+          "label": { "zh-TW": "急性（< 1 週）", "en": "Acute (<1wk)", "vi": "cấp tính (<1 tuần)", "es": "agudo (<1 semana)", "id": "akut (<1 minggu)", "ja": "急性（1週間未満）", "ko": "급성 (<1주)" }
         },
         {
           "value": "subacute",
-          "label": { "zh-TW": "亞急性（1-6 週）", "en": "Subacute (1-6wk)" }
+          "label": { "zh-TW": "亞急性（1-6 週）", "en": "Subacute (1-6wk)", "vi": "bán cấp (1-6 tuần)", "es": "subagudo (1-6 semanas)", "id": "subakut (1-6 minggu)", "ja": "亜急性（1〜6週間）", "ko": "아급성 (1-6주)" }
         },
         {
           "value": "chronic",
-          "label": { "zh-TW": "慢性（> 6 週）", "en": "Chronic (>6wk)" }
+          "label": { "zh-TW": "慢性（> 6 週）", "en": "Chronic (>6wk)", "vi": "mãn tính (>6 tuần)", "es": "crónico (>6 semanas)", "id": "kronis (>6 minggu)", "ja": "慢性（6週間以上）", "ko": "만성 (>6주)" }
         }
       ],
       "required": true
@@ -47,13 +62,18 @@
       "type": "scale",
       "label": {
         "zh-TW": "疼痛強度",
-        "en": "Pain intensity"
+        "en": "Pain intensity",
+        "vi": "Cường độ đau",
+        "es": "Intensidad del dolor",
+        "id": "Intensitas nyeri",
+        "ja": "疼痛強度",
+        "ko": "통증 강도"
       },
       "min": 0,
       "max": 10,
       "labels": {
-        "min": { "zh-TW": "不痛", "en": "No pain" },
-        "max": { "zh-TW": "最痛", "en": "Worst imaginable" }
+        "min": { "zh-TW": "不痛", "en": "No pain", "vi": "Không đau", "es": "Sin dolor", "id": "Tidak nyeri", "ja": "痛みなし", "ko": "통증 없음" },
+        "max": { "zh-TW": "最痛", "en": "Worst imaginable", "vi": "Tệ nhất có thể", "es": "Lo peor imaginable", "id": "Terburuk yang bisa dibayangkan", "ja": "最大の痛み", "ko": "상상 최악" }
       }
     },
     {
@@ -61,13 +81,23 @@
       "type": "boolean",
       "label": {
         "zh-TW": "近期有外傷史嗎？",
-        "en": "Recent trauma history?"
+        "en": "Recent trauma history?",
+        "vi": "Có tiền sử chấn thương gần đây không?",
+        "es": "¿Historial de traumatismo reciente?",
+        "id": "Ada riwayat trauma baru-baru ini?",
+        "ja": "最近の外傷歴はありますか？",
+        "ko": "최근 외상 병력이 있나요?"
       },
       "redFlagModuleRefs": ["fracture_warning_module"]
     }
   ],
   "patientDisclaimer": {
     "zh-TW": "本問卷為診前資料蒐集工具，非醫療建議。實際診斷由您的醫師進行。",
-    "en": "This intake form is a pre-visit data collection tool, not medical advice. Diagnosis by your physician."
+    "en": "This intake form is a pre-visit data collection tool, not medical advice. Diagnosis by your physician.",
+    "vi": "Biểu mẫu này là công cụ thu thập dữ liệu trước khám, không phải lời khuyên y tế. Chẩn đoán do bác sĩ của bạn thực hiện.",
+    "es": "Este formulario es una herramienta de recopilación de datos previos a la consulta, no un consejo médico. El diagnóstico lo realiza su médico.",
+    "id": "Formulir ini adalah alat pengumpulan data pra-kunjungan, bukan saran medis. Diagnosis dilakukan oleh dokter Anda.",
+    "ja": "このフォームは診察前のデータ収集ツールであり、医療アドバイスではありません。診断はあなたの医師が行います。",
+    "ko": "이 양식은 진료 전 데이터 수집 도구이며 의료 조언이 아닙니다. 진단은 귀하의 의사가 합니다."
   }
 }
